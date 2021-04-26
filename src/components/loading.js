@@ -1,6 +1,6 @@
 // import React, {Component} from "react";
-import {Spin} from "antd";
-import styled from "styled-components";
+import { Spin } from 'antd';
+import styled from 'styled-components';
 
 const Loading = styled(Spin)`
   display: flex;

@@ -1,7 +1,7 @@
-import React, {Component} from "react";
-import {observer, inject} from "mobx-react";
+import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 
-@inject("store")
+@inject('store')
 @observer
 class Line extends Component {
   render() {

@@ -29,6 +29,7 @@ function trimStrSpace(str) {
 @ str:待检测字符串
 */
 function isHasSpecialStr(str) {
+  // eslint-disable-next-line no-useless-escape
   var myReg = /[~!@#$%^&*()/\|,.<>?"'();:_+-=\[\]{}]/;
   if (myReg.test(str)) {
     return true;
@@ -56,6 +57,7 @@ function getUrlQuery(name, search) {
  */
 function UrlSearch(str) {
   var name, value;
+  // eslint-disable-next-line no-redeclare
   var str = location.href; //取得整个地址栏
   var num = str.indexOf('?');
   str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
@@ -72,6 +74,7 @@ function UrlSearch(str) {
 
 function hashParams(str) {
   var name, value;
+  // eslint-disable-next-line no-redeclare
   var str = window.location.hash; // 取得hash
   var num = str.indexOf('?');
   str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
@@ -107,7 +110,9 @@ function removeArray(_arr, _obj) {
  */
 function getFloatStr(num) {
   num += '';
+  // eslint-disable-next-line no-useless-escape
   num = num.replace(/[^0-9|\.]/g, ''); //清除字符串中的非数字非.字符
+  // eslint-disable-next-line no-constant-condition
   if (/^0+/)
     //清除字符串开头的0
     num = num.replace(/^0+/, '');
@@ -128,6 +133,7 @@ function getFloatStr(num) {
  * 数字千分位处理
  */
 function thousandNum(num) {
+  // eslint-disable-next-line no-redeclare
   var num = (num || 0).toString(),
     result = '';
   while (num.length > 3) {
@@ -220,16 +226,11 @@ function objCompare(key) {
 function getBrowser() {
   var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
   var isOpera = userAgent.indexOf('Opera') > -1; //判断是否Opera浏览器
-  var isIE =
-    userAgent.indexOf('compatible') > -1 &&
-    userAgent.indexOf('MSIE') > -1 &&
-    !isOpera; //判断是否IE浏览器
+  var isIE = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1 && !isOpera; //判断是否IE浏览器
   var isEdge = userAgent.indexOf('Edge') > -1; //判断是否IE的Edge浏览器
   var isFF = userAgent.indexOf('Firefox') > -1; //判断是否Firefox浏览器
-  var isSafari =
-    userAgent.indexOf('Safari') > -1 && userAgent.indexOf('Chrome') == -1; //判断是否Safari浏览器
-  var isChrome =
-    userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Safari') > -1; //判断Chrome浏览器
+  var isSafari = userAgent.indexOf('Safari') > -1 && userAgent.indexOf('Chrome') == -1; //判断是否Safari浏览器
+  var isChrome = userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Safari') > -1; //判断Chrome浏览器
 
   if (isIE) {
     var reIE = new RegExp('MSIE (\\d+\\.\\d+);');
@@ -248,6 +249,7 @@ function getBrowser() {
     } else {
       return '0';
     } //IE版本过低
+    // eslint-disable-next-line no-unreachable
     return 'IE';
   }
   if (isOpera) {
@@ -296,20 +298,7 @@ export function guid() {
       .toString(16)
       .substring(1);
   }
-  return (
-    s4() +
-    s4() +
-    '-' +
-    s4() +
-    '-' +
-    s4() +
-    '-' +
-    s4() +
-    '-' +
-    s4() +
-    s4() +
-    s4()
-  );
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
 /**
@@ -320,6 +309,7 @@ export function guid() {
 export function debounce(func, wait) {
   let timeout;
   return function () {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const _this = this;
     const _args = arguments;
     // console.log('debounce', _this, _args);
@@ -333,6 +323,7 @@ export function debounce(func, wait) {
 export function throttle(func, wait) {
   let timeout;
   return function () {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     let _this = this;
     let _args = arguments;
     if (!timeout) {

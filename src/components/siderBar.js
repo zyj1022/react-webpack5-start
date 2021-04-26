@@ -12,7 +12,6 @@ const { Sider } = Layout;
 @inject('store')
 @observer
 class SiderBar extends Component {
-
   getMenuNodes = (MenuList) => {
     return MenuList.map((item) => {
       if (!item.children) {
