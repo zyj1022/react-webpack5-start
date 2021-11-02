@@ -1,34 +1,22 @@
-import {
-  observable,
-  toJS,
-  action,
-  makeObservable,
-  runInAction,
-  observe,
-} from 'mobx';
+import { makeAutoObservable, toJS } from 'mobx';
 import * as api from '../requests/common';
-
+import { getResultData } from './commonUtil';
 class HomeStore {
-  constructor() {
-    makeObservable(this);
-  }
-
-  @observable name = 'HomeStore';
-  @observable userInfo = {
+  name = 'HomeStore';
+  userInfo = {
     name: 'name',
     pin: '998',
   };
 
-  @action
+  constructor() {
+    makeAutoObservable(this);
+  }
+
   async getUserInfo(params) {
     const res = await api.getUserInfo(params);
-    const result = res && res.data;
-    if (result && result.success) {
-      runInAction(() => {
-        this.userInfo = { ...result.data };
-      });
-      console.log('this.userInfo---', this.userInfo);
-    }
+    const result = getResultData(res);
+    this.userInfo = result && { ...result };
+    // console.log('result---', toJS(result));
   }
 }
 

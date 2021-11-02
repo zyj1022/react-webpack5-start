@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 // import { hot } from 'react-hot-loader/root';
 import { ConfigProvider } from 'antd';
 import { Provider } from 'mobx-react';
+import { toJS } from 'mobx';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import zhCN from 'antd/lib/locale/zh_CN';
 import Router from './router/router';
-import RootStore from './stores';
+import store from './stores';
 
-const store = new RootStore();
 dayjs.locale('zh-cn');
 
 const Container: React.FC<IProps> = () => {
-  console.log('store', store);
+  console.log('root-store', toJS(store));
   return (
     <ConfigProvider locale={zhCN}>
       <Provider store={store}>
@@ -24,5 +24,9 @@ const Container: React.FC<IProps> = () => {
 };
 
 // const App = hot(Container);
+
+if (module.hot) {
+  module.hot.accept();
+}
 
 ReactDOM.render(<Container />, document.querySelector('#root'));

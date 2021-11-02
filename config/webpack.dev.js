@@ -40,10 +40,7 @@ module.exports = merge(commonConfig, {
             loader: 'less-loader',
             options: {
               lessOptions: {
-                paths: [
-                  path.resolve(__dirname, '../src'),
-                  path.resolve(__dirname, '../node_modules/antd'),
-                ],
+                paths: [path.resolve(__dirname, '../src'), path.resolve(__dirname, '../node_modules/antd')],
                 modifyVars: lessModifyVars,
                 javascriptEnabled: true,
               },
@@ -91,11 +88,8 @@ module.exports = merge(commonConfig, {
   ],
   devServer: {
     historyApiFallback: true,
-    // publicPath: path.resolve(__dirname, '../public'),
-    contentBase: path.resolve(__dirname, '../dist'),
     open: true,
     hot: true,
-    quiet: true,
     port: dev.port,
     proxy: {
       '/api': {

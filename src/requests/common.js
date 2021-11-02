@@ -11,27 +11,9 @@ export async function login(params) {
 
 export async function getUserInfo(params) {
   return axios({
-    url: `//localhost:9649/common/getUserInfo`,
+    url: `/api/getUser`,
     method: 'get',
     data: params,
     title: '登录',
-  });
-}
-
-export async function logout(params) {
-  return axios({
-    url: '/api/auth/logout',
-    method: 'post',
-    data: params,
-    title: '退出系统',
-  });
-}
-
-export async function changeLoginPassword(params) {
-  return axios({
-    url: `/api/auth/changeLoginPassword`,
-    method: 'post',
-    data: params,
-    title: '修改登录密码',
   });
 }

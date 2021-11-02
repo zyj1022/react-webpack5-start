@@ -5,12 +5,13 @@ module.exports = {
   },
   mock: {
     express: {
-      port: 9649,
+      port: 9660,
     },
   },
   proxy: {
-    target: 'localhost', // 代理目标链接
+    target: 'http://localhost:9660', // mock
   },
+  prefix: 'api',
   // 配置 ant 主题皮肤
   lessModifyVars: {
     '@primary-color': '#ff1852',

@@ -1,16 +1,90 @@
 {
-  "files.eol": "",
-  "editor.tabSize": 4,
+  "prettier.singleQuote": true,
+  "editor.fontSize": 16,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    // 设置全部语言的默认格式化程序为prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "files.associations": {
+    "*.mw.json": "jsonc",
+    "*.icon": "xml"
+  },
+  "editor.snippetSuggestions": "top",
+  "emmet.showSuggestionsAsSnippets": true,
+
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "prettier.printWidth": 120,
+  "editor.formatOnType": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "typescript",
-      "autoFix": true
-    }
-  ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "sync.gist": "d213e84b91a1bff5c4f38dc44511fdb9",
+  "sync.host": "",
+  "sync.pathPrefix": "",
+  "sync.quietSync": false,
+  "sync.askGistName": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.lastUpload": "",
+  "sync.lastDownload": "",
+  "sync.forceDownload": false,
+  "team.showWelcomeMessage": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow",
+  "typescript.useCodeSnippetsOnMethodSuggest": true,
+  "editor.tabCompletion": true,
+  "git.enableSmartCommit": true,
+  "editor.tabSize": 2,
+  "flow.useNPMPackagedFlow": true,
+  "javascript.validate.enable": false,
+  "dart.flutterSdkPath": "/Users/yuhongda/Downloads/flutter",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.sideBar.location": "left",
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  "workbench.iconTheme": "ayu",
+
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "team.showFarewellMessage": false,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "stock-watch.stocks": ["sh000001"],
+  "stock-watch.showTime": [9, 15],
+  "stock-watch.updateInterval": 10000,
+  "extensions.ignoreRecommendations": true,
+
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.zoomLevel": 1,
+  "prettier.semi": true,
+  "editor.semanticTokenColorCustomizations": null,
+  "editor.rulers": [{}]
 }
+// {
+//   "editor.formatOnSave": true,
+//   "editor.codeActionsOnSave": {
+//     "source.fixAll.eslint": true,
+//     "source.fixAll.stylelint": true
+//   },
+//   "editor.fontSize": 18,
+//   "eslint.enable": true,
+//   "prettier.singleQuote": true,
+//   "editor.defaultFormatter": "esbenp.prettier-vscode",
+//   "prettier.printWidth": 120
+// }
