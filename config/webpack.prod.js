@@ -2,7 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -58,10 +58,7 @@ module.exports = merge(commonConfig, {
             loader: 'less-loader',
             options: {
               lessOptions: {
-                paths: [
-                  path.resolve(__dirname, '../src'),
-                  path.resolve(__dirname, '../node_modules/antd'),
-                ],
+                paths: [path.resolve(__dirname, '../src'), path.resolve(__dirname, '../node_modules/antd')],
                 modifyVars: lessModifyVars,
                 javascriptEnabled: true,
               },
@@ -79,6 +76,7 @@ module.exports = merge(commonConfig, {
         parallel: true,
         extractComments: true,
       }),
+      new CssMinimizerPlugin(),
     ],
     splitChunks: {
       cacheGroups: {
@@ -106,20 +104,6 @@ module.exports = merge(commonConfig, {
       filename: '[name].[contenthash].css',
       chunkFilename: '[id].[contenthash].css',
       ignoreOrder: false,
-    }),
-    new OptimizeCssAssetsPlugin({
-      cssProcessor: require('cssnano'),
-      cssProcessorPluginOptions: {
-        preset: [
-          'default',
-          {
-            discardComments: {
-              removeAll: true,
-            },
-          },
-        ],
-      },
-      canPrint: true,
     }),
   ],
 });

@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 
-import { HomeOutlined } from '@ant-design/icons';
+import HomeOutlined from '@ant-design/icons/HomeOutlined';
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
