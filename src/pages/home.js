@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { toJS } from 'mobx';
 import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
+import { Button } from 'antd';
 
 import BreadcrumdBar from '@/components/breadcrumd';
 import * as api from '../requests/common';
@@ -30,6 +31,10 @@ export const user = mobxSetter({
   value: {},
 });
 
+export const num = mobxSetter({
+  value: 100,
+});
+
 const Home = observer(() => {
   const { common, home } = useStore();
   const [userInfo, setUserInfo] = useState({});
@@ -45,8 +50,17 @@ const Home = observer(() => {
   return (
     <Containter>
       <BreadcrumdBar />
-      <h1> hello {getUserData.value.name}</h1>
-      <h2> hello {getUserData.value.pin}</h2>
+      <h1>
+        hello {getUserData.value.name} ---- {user.value.name}
+      </h1>
+      <h2>
+        {' '}
+        hello {getUserData.value.pin}---- {user.value.pin}
+      </h2>
+      <h1>{num.value}</h1>
+      <Button type="primary" onClick={() => num.set(num.value + 1)}>
+        Add++
+      </Button>
     </Containter>
   );
 });
